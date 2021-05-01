@@ -1,3 +1,5 @@
+// Author: Raman Zatsarenko rzv090701@gmail.com
+
 // get command line args
 var args = process.argv.slice(2);
 // console.log('args: ', args);
@@ -19,11 +21,13 @@ for (let i=0; i<args.length; i++) {
     let num = parseInt(args[i]);
     let stringNum = "";
     let minus = "";
+
     // if a number is negative
     if (num < 0) {
         minus = "Minus";
         num = Math.abs(num);
     }
+    // if a number is zero
     if (num == 0) {
         stringNum = nums[num];
     }
@@ -32,7 +36,9 @@ for (let i=0; i<args.length; i++) {
         num = Math.floor(num/10);
     }
     stringNum = minus + stringNum;
+    // don't add a comma if this is the last number to process
     i == args.length-1 ? result += stringNum : result += stringNum + ",";
 
 }
+// print to stoud
 console.log(result)
